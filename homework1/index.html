@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>homework1</title>
+</head>
+
+<body>
+    <ul id="idUL">
+        <li>List item 1</li>
+        <li>List item 2</li>
+        <li>List item 3</li>
+        <li>List item 4</li>
+    </ul>
+    <div class="wrapper" style="display: flex; flex-direction: column; width: 200px;">
+        <input type="button" value="Выбрать первый элемент" onclick="selectFirst()" />
+        <input type="button" value="Выбрать последний элемент" onclick="selectLast()" />
+        <input type="button" value="Выбрать следующий элемент" onclick="selectNext()" />
+        <input type="button" value="Выбрать предыдущий элемент" onclick="selectPrev()" />
+        <input type="button" value="Добавить элемент" onclick="append()" />
+        <input type="button" value="Удалить элемент" onclick="remove()" />
+        <input type="button" value="Добавить в начало" onclick="appendToTheTop()" />
+    </div>
+    <script src="script.js"></script>
+</body>
+</html>
