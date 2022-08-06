@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>All, Elements</title>
+    <style>
+        /* * {
+            color: red;
+            text-decoration: none;
+        }
+        p {
+            color: brown;
+        }
+        .class {
+            color: green;
+        }
+        a {
+            font-weight: bold;
+            font-style: italic;
+            text-decoration: underline;
+        }
+        p, a {
+            text-transform: uppercase;
+        } */
+    </style>
+</head>
+<body>
+    <h1 class="class1" id="id1">Title</h1>
+    <p class="class">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum</p>
+    <a href="#">Link</a>
+    <script>
+        var allElements = document.querySelectorAll('*');
+        for (var i = 0; i < allElements.length; i++) {
+            allElements[i].style.cssText = 'color: red; text-decoration: none;';
+        }
+
+        var title = document.querySelector('#id1');
+        title.style.cssText = 'margin-top: 10px; background-color: yellow';
+        title.classList.toggle('newclass');
+        var computedStyle = getComputedStyle(title);
+        console.log(computedStyle, 'class1');
+
+        var paragraph = document.querySelectorAll('p');
+        for (var i = 0; i < paragraph.length; i++) {
+            paragraph[i].style.cssText = 'color: brown; text-transform: uppercase;';
+        }
+
+        var text = document.querySelector('.class');
+        text.style.cssText = 'color: green; text-transform: uppercase;';
+        text.classList.toggle('newclass');
+        var computedStyle = getComputedStyle(text);
+        console.log(computedStyle, 'class');
+
+        var link = document.querySelectorAll('a');
+        for (var i = 0; i < link.length; i++) {
+            link[i].style.cssText = 'color: red; font-weight: bold; font-style: italic; text-decoration: underline; text-transform: uppercase;';
+        }
+    </script>
+</body>
+</html>
