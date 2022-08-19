@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Homework</title>
+</head>
+<body>
+<!-- Создайте счетчик секунд, который начинает отчет с 1 и заканчивается на 30,
+также добавьте кнопки которые останавливают отчет, и запускают его заново и добавьте кнопку
+обнуляющую отcчет. Также попробуйте изменить код так чтобы отсчет начинался с 30 и заканчивался на 1. -->
+
+    <p id="timer"></p>
+
+    <button onclick="stopTimer()">Остановить отсчет</button>
+    <button onclick="restartTimer()">Запустить отсчет</button>
+    <button onclick="resetTimer()">Обнулить</button>
+    <button onclick="reverseTimer()">Обратный отсчет</button>
+
+    <script>
+        var myCounter = document.getElementById("timer");
+        var myStartSecond = 1;
+        var myFinishSecond = 30;
+
+        var myTimer = setInterval(setTimer, 1000);
+
+        function setTimer() {
+            if (myCounter.innerHTML == 30) {
+                stopTimer();
+            } else {
+                myCounter.innerHTML = myStartSecond++;
+            }
+        }
+
+        function stopTimer() {
+            clearInterval(myTimer);
+        }
+
+        function restartTimer() {
+            myTimer = setInterval(setTimer, 1000);
+        }
+
+        function resetTimer() {
+            myStartSecond = 1;
+            myCounter.innerHTML = myStartSecond;
+            stopTimer();
+        }
+
+        // отсчет с 30 до 1
+        function reverseTimer() {
+            stopTimer();
+            myCounter.innerHTML = myFinishSecond;
+            if (myCounter.innerHTML == 1) {
+                stopTimer();
+            } else {
+                myCounter.innerHTML = myFinishSecond--;
+            }
+            setTimeout(reverseTimer, 1000);
+        }
+
+    </script>
+</body>
+</html>
