@@ -1,0 +1,45 @@
+<!-- 
+    Запросите у пользователя ввести какую-то фразу. (Lorem ipsum dolor sit amet consectetur Adipisicing Elit)
+    Отобразите каждое отдельное слово в виде списка ul li. 
+    Также отобразите первое слово UPPERCASE, а последние 2 с маленькой. 
+    Найдите все буквы "а" их количество в модальное окно. 
+ -->
+ 
+<!DOCTYPE html>
+<html >
+<head>
+    <meta charset="UTF-8">
+    <title>Homework</title>
+</head>
+<body>
+    <script>
+        var phrase = prompt('Введите фразу:');
+        var patt = new RegExp(/\s/);
+        var splitedPhrase = phrase.split(patt);
+
+        // отобразить первое слово UPPERCASE
+        splitedPhrase[0] = splitedPhrase[0].toUpperCase();
+
+        // отобразить последние 2 с маленькой
+        for (var i = splitedPhrase.length - 1; i >= splitedPhrase.length - 2; i--) {
+            splitedPhrase[i] = splitedPhrase[i].toLowerCase();
+        }
+
+        // отобразить каждое отдельное слово в виде списка ul li
+        var ul = document.createElement('ul');
+        document.body.appendChild(ul);
+
+        for (var i = 0; i < splitedPhrase.length; i++) {
+            var li = document.createElement('li');
+            li.innerHTML = splitedPhrase[i];
+            ul.appendChild(li);
+        }
+
+        // найти все буквы "а" и их количество 
+        var pattern = new RegExp("a", "g");
+        var result = phrase.match(pattern);
+        alert('Количество "a": ' + result.length);
+        
+    </script>
+</body>
+</html>
