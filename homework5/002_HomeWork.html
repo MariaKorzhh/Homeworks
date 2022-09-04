@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html >
+<head>
+    <meta charset="UTF-8">
+    <title>Homework_2</title>
+    <style>
+        div {
+            border: 1px solid green;
+            margin: 10px;
+            padding: 10px;
+        }
+    </style>
+</head>
+<body>
+    <!--1. Создайте 5 блоков с текстом. Добавьте в каждый из блоков кнопку для его удаления.
+    Используйте только один обработчик. -->
+
+    <container id="myCont">
+        <div>
+            <p>1. Lorem ipsum dolor sit amet consectetur adipisicing elit. Doloremque porro animi nisi provident eius officiis?</p>
+            <button>Delete</button>
+        </div>
+        <div>
+            <p>2. Lorem ipsum dolor sit amet consectetur adipisicing elit. Nihil harum debitis animi voluptatum suscipit magnam sit quod.</p>
+            <button>Delete</button>
+        </div>
+        <div>
+            <p>3. Lorem ipsum dolor sit amet consectetur adipisicing elit. Iure expedita quasi eos at nesciunt omnis!</p>
+            <button>Delete</button>
+        </div>
+        <div>
+            <p>4. Lorem ipsum, dolor sit amet consectetur adipisicing elit. Dignissimos voluptas similique, eaque maxime necessitatibus quam ab!</p>
+            <button>Delete</button>
+        </div>
+        <div>
+            <p>5. Lorem ipsum dolor sit, amet consectetur adipisicing elit. Maiores placeat cum, nulla quae praesentium temporibus?</p>
+            <button>Delete</button>
+        </div>
+    </container>
+
+    <script>
+        var container = document.getElementById('myCont');
+
+        container.addEventListener('click', function(e) {
+            var target = e.target;
+
+            if (target.tagName !== 'BUTTON') {
+                return;
+            }
+
+            target.parentNode.style.display = 'none';
+        }) 
+    </script>
+</body>
+</html>
