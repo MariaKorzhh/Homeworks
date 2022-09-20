@@ -1,0 +1,84 @@
+<!-- Реализуйте последние 2 слайда в презентации с помощью пройденого на уроке материала -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Homework</title>
+    <script>
+
+        //---- наследование ----
+
+        function Man(walk, eat, drink) {
+            this.walk = walk;
+            this.eat = eat;
+            this.drink = drink;
+        }
+
+        function Soldier(walk, eat, drink) {
+            this.walk = walk;
+            this.eat = eat;
+            this.drink = drink;
+            this.shoot = function() {
+                document.write('Soldier shoots' + "<br/>");
+            }
+        }
+
+        function Doctor(walk, eat, drink) {
+            this.walk = walk;
+            this.eat = eat;
+            this.drink = drink;
+            this.cure = function() {
+                document.write('Doctor cures patients' + "<br/>");
+            }
+        }
+
+        Soldier.prototype = new Man();
+        Doctor.prototype = new Man();
+
+        var soldier = new Soldier(true, true, true);
+        var doctor = new Doctor(true, true, true);
+
+        soldier.shoot();
+        doctor.cure();
+
+        console.log(soldier);
+        console.log(doctor);
+
+
+        //---- полиморфизм ----
+
+        function Dentist(walk, eat, drink) {
+            this.walk = walk;
+            this.eat = eat;
+            this.drink = drink;
+            this.cure = function() {
+                document.write('Dentist treats teeth' + "<br/>");
+            }
+        }
+
+        function Surgeon(walk, eat, drink) {
+            this.walk = walk;
+            this.eat = eat;
+            this.drink = drink;
+            this.cure = function() {
+                document.write('Surgeon performs operations' + "<br/>");
+            }
+        }
+
+        Dentist.prototype = new Doctor();
+        Surgeon.prototype = new Doctor();
+
+        var dentist = new Dentist(true, true, true);
+        var surgeon = new Surgeon(true, true, true);
+
+        dentist.cure();
+        surgeon.cure();
+
+        console.log(dentist);
+        console.log(surgeon);
+        
+    </script>
+</head>
+<body>
+</body>
+</html>
