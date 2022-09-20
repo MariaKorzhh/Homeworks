@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html >
+<head>
+    <meta charset="UTF-8">
+	<title>HomeWork</title>
+	<style>
+		.circle {
+			height: 50px;
+  			width: 50px;
+  			background-color: #FFA500;
+  			border-radius: 50%;
+		}
+	</style>
+</head>
+<body>
+    <!-- 
+	1. drag and drop;
+	-->
+	<div class="circle"></div>
+
+	<script>
+		var circle = document.querySelector('.circle');
+
+		circle.addEventListener('mousedown', function(e) {
+			circle.style.position = 'absolute';
+			document.body.append(circle);
+
+			moveCircle(e.pageX, e.pageY);
+
+			function moveCircle(pageX, pageY) {
+				circle.style.left = pageX - circle.offsetWidth / 2 + 'px';
+				circle.style.top = pageY - circle.offsetHeight / 2 + 'px';
+			}
+
+			function moveMouse(e) {
+				moveCircle(e.pageX, e.pageY);
+			}
+
+			document.addEventListener('mousemove', moveMouse);
+
+			circle.addEventListener('mouseup', function() {
+				document.removeEventListener('mousemove', moveMouse);
+			})
+		})
+	</script>
+</body>
+</html>
