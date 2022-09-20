@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Homework</title>
+</head>
+<!-- Создайте страницу которая запрашивает имя пользователя, если пользователь вводит "Admin" либо "admin" он попадает на страницу,
+    которая оповещает его о том что " Пользоваетль Admin(не статическая строка, а данные что ввел пользователь) вошел в систему"
+    а рядом разместите кнопку "Выход" которая вернет пользователя к модальному окну ввода логина. Реализуйте код как для куки так и для localstorage. -->
+<body>
+    <div id="message">
+        <div id="text"></div>
+        <input id="exitButton" type="button" value="Выход" />
+    </div>
+    
+    <!-- для localstorage -->
+    <script>
+        window.addEventListener('load', init);
+
+        function init() {
+            var div = document.getElementById('message');
+            var text = document.getElementById('text');
+            var btn = document.getElementById('exitButton');
+            var nameFromUser;
+            localStorage.setItem('userName', 'admin');
+
+            function getNameFromUser() {
+                nameFromUser = prompt('Введите имя пользователя: ');
+            }
+
+            function setLocalStorage() {
+                localStorage.setItem('nameFromUser', nameFromUser);
+            }
+
+            function showMessage() {
+                if(localStorage.getItem('userName') == localStorage.getItem('nameFromUser').toLowerCase()) {
+                    text.innerText = `Пользователь ${localStorage.getItem('nameFromUser')} вошел в систему`;
+                } else {
+                    text.innerText = `Пользователь ${localStorage.getItem('nameFromUser')} не найден`;
+                }
+            }
+
+            getNameFromUser();
+            setLocalStorage();
+            showMessage();
+
+            btn.addEventListener('click', clickHandler);
+
+            function clickHandler() {
+                getNameFromUser();
+                setLocalStorage();
+                showMessage();
+            }
+        }
+    </script>
+</body>
+</html>

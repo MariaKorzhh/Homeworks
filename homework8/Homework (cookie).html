@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Homework</title>
+</head>
+<!-- Создайте страницу которая запрашивает имя пользователя, если пользователь вводит "Admin" либо "admin" он попадает на страницу,
+    которая оповещает его о том что " Пользоваетль Admin(не статическая строка, а данные что ввел пользователь) вошел в систему"
+    а рядом разместите кнопку "Выход" которая вернет пользователя к модальному окну ввода логина. Реализуйте код как для куки так и для localstorage. -->
+<body>
+    <div id="message">
+        <div id="text"></div>
+        <input id="exitButton" type="button" value="Выход" />
+    </div>
+    
+    <!-- для cookie -->
+    <script>
+        window.addEventListener('load', init);
+
+        function init() {
+            var div = document.getElementById('message');
+            var text = document.getElementById('text');
+            var btn = document.getElementById('exitButton');
+            var nameFromUser;
+
+            document.cookie = 'userName=admin';
+
+            function getNameFromUser() {
+                nameFromUser = prompt('Введите имя пользователя: ');
+            };
+
+            function setCookie() {
+                document.cookie = 'nameFromUser=' + nameFromUser;
+            };
+
+            function findCookieValue(cookieName) {
+                var allcookies = document.cookie; 
+                var pos = allcookies.indexOf(cookieName + "="); 
+
+                if (pos != -1) {
+                    var start = pos + cookieName.length + 1;
+                    var end = allcookies.indexOf(";", start); 
+
+                    if (end == -1) {
+                        end = allcookies.length;
+                    } 
+
+                    var value = allcookies.substring(start, end);
+                    return decodeURIComponent(value);
+                }
+            };
+
+            function showMessage() {
+                if(findCookieValue('userName') == findCookieValue('nameFromUser').toLowerCase()) {
+                    text.innerText = `Пользователь ${findCookieValue('nameFromUser')} вошел в систему`;
+                } else {
+                    text.innerText = `Пользователь ${findCookieValue('nameFromUser')} не найден`;
+                }
+            };
+
+            getNameFromUser();
+            setCookie();
+            showMessage();
+
+            btn.addEventListener('click', clickHandler);
+
+            function clickHandler() {
+                getNameFromUser();
+                setCookie();
+                showMessage();
+            }
+        }
+    </script>
+</body>
+</html>
