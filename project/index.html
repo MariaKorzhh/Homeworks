@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Star Wars</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://allfont.net/allfont.css?fonts=star-jedi" rel="stylesheet" type="text/css" />
+</head>
+<body>
+    <div class="container">
+        <img src="/project/images/logo.png" alt="logo" class="logo">
+    </div>
+    <div class="container">
+        <div class="list">
+            <ul id="list">
+                <li></li>
+                <li></li>
+                <li></li>
+                <li></li>
+                <li></li>
+                <li></li>
+                <li></li>
+                <li></li>
+                <li></li>
+                <li></li>
+            </ul>
+            <input type="button" value="prev" id="prev" class="btn">
+            <input type="button" value="next" id="next" class="btn">
+        </div>
+
+        <div class="popup_bg">
+            <table class="popup">
+                <tr>
+                    <th id="header"></th>
+                </tr>
+                <tr>
+                    <td>Birth year</td>
+                    <td id="birthYear"></td>
+                </tr>
+                <tr>
+                    <td>Gender</td>
+                    <td id="gender"></td>
+                </tr>
+                <tr>
+                    <td>Films</td>
+                    <td id="films"></td>
+                </tr>
+                <tr>
+                    <td>Homeworld</td>
+                    <td id="homeworld"></td>
+                </tr>
+                <tr>
+                    <td>Species</td>
+                    <td id="species"></td>
+                </tr>
+                <input type="button" value="close" class="close-popup">
+            </table>
+        </div>
+    </div>
+	<script src="script.js"></script>
+</body>
+</html>
