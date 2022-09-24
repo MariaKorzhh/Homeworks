@@ -10,7 +10,7 @@ body {
     margin: 0;
     font-family: 'Star Jedi', arial;
     font-size: 16px;
-    font-weight: 400;
+    font-weight: 600;
     line-height: 1.36;
     color: #fff;
     background-image: url('/project/images/background.jpg');
@@ -32,14 +32,26 @@ ul, ol {
     display: flex;
     justify-content: center;
     align-items: center;
-    width: 100%;
-    height: 200px;
+    flex-direction: column;
+    max-width: 1248px;
+
 }
 
 .logo {
     height: 120px;
     width: 250px;
+    margin: 20px auto;
 
+}
+
+.message {
+    margin: 20px auto;
+}
+
+.list {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
 }
 
 .popup_bg {
@@ -73,6 +85,10 @@ ul, ol {
     transition: 0.5s all;
 }
 
+.popup__header {
+    font-size: 20px;
+}
+
 .popup.active { 
     transform: translate(-50%, -50%) scale(1);
     transition: 0.5s all;
@@ -80,12 +96,31 @@ ul, ol {
 
 .close-popup {
     position: absolute;
-    top: 10px;
-    right: 10px;
+    right: 20px;
+    top: 30x;
+    width: 30px;
+    height: 30px;
     cursor: pointer;
-    
+    opacity: 0.5; 
 }
 
+.close-popup:hover {
+    opacity: 1;
+  }
+  .close-popup:before, .close-popup:after {
+    position: absolute;
+    left: 15px;
+    content: ' ';
+    height: 30px;
+    width: 2px;
+    background-color: #FFE300;
+  }
+  .close-popup:before {
+    transform: rotate(45deg);
+  }
+  .close-popup:after {
+    transform: rotate(-45deg);
+  }
 
 
 
