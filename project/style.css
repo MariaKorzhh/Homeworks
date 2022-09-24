@@ -45,13 +45,40 @@ ul, ol {
 }
 
 .message {
-    margin: 20px auto;
+    margin: 15px auto;
 }
 
 .list {
     display: flex;
     flex-direction: column;
     align-items: center;
+}
+
+.buttons {
+    display: flex;
+}
+
+.btn {
+    text-decoration: none;
+    padding: 8px 16px;
+    margin: 10px;
+  }
+  
+.btn:hover {
+    background-color: #000;
+    color: #FFE300;
+}
+  
+.previous {
+    background-color: #000;
+    color: #fff;
+    border: 0.5px solid #FFE300;
+}
+  
+.next {
+    background-color: #000;
+    color: #fff;
+    border: 0.5px solid #FFE300;
 }
 
 .popup_bg {

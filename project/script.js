@@ -22,7 +22,6 @@ var init = {method: 'GET'};
             .then(function (data) {
                 console.log(data);
             
-                //вывод списка
                 for(var i = 0; i < data.results.length; i++) {
                     ul.children[i].innerHTML = data.results[i].name;
 
@@ -37,7 +36,7 @@ var init = {method: 'GET'};
                         popupBg.classList.add('active');
                         popup.classList.add('active');
                         
-                        //заполнение таблицы персонажа
+                        //filling popup
                         for(var i = 0; i < data.results.length; i++) {
                             if(target.innerHTML == data.results[i].name) {
                                 header.innerHTML = data.results[i].name;
@@ -51,7 +50,7 @@ var init = {method: 'GET'};
                                 }
                                 
                 
-                                // //films
+                                //films
                                 var filmsUrl = data.results[i].films;
                                 films.innerHTML = '';
                                 if(filmsUrl.length < 1) {
@@ -118,7 +117,7 @@ var init = {method: 'GET'};
     }
     
 
-//кнопка "вперед"
+//button next
 nextBtn.addEventListener('click', clickHandlerNext);
 
 function clickHandlerNext() {
@@ -126,7 +125,7 @@ function clickHandlerNext() {
     setList();
 }
 
-//кнопка "назад"
+//button previous
 prevBtn.addEventListener('click', clickHandlerPrev);
 
 function clickHandlerPrev() {
@@ -135,6 +134,7 @@ function clickHandlerPrev() {
     
 }
 
+//button close popup
 closePopupButton.addEventListener('click', function() {
     popupBg.classList.remove('active');
     popup.classList.remove('active');
