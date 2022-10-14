@@ -20,7 +20,6 @@ var init = {method: 'GET'};
         fetch(url, init)
         .then(function (resp) {return resp.json();})
             .then(function (data) {
-                console.log(data);
             
                 for(var i = 0; i < data.results.length; i++) {
                     ul.children[i].innerHTML = data.results[i].name;
